@@ -55,10 +55,14 @@ export const App: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="box">
           <div className="field">
-            <label className="label">Title</label>
-            <div className={classNames('control', {
-              'has-icons-right': hasTitleError,
-            })}>
+            <label htmlFor="title" className="label">
+              Title
+            </label>
+            <div
+              className={classNames('control', {
+                'has-icons-right': hasTitleError,
+              })}
+            >
               <input
                 type="text"
                 className={classNames('input', {
@@ -80,11 +84,15 @@ export const App: React.FC = () => {
           </div>
 
           <div className="field">
-            <label className="label">User</label>
+            <label htmlFor="user" className="label">
+              User
+            </label>
             <div className="control">
-              <div className={classNames('select', {
-                'is-danger': hasUserIdError,
-              })}>
+              <div
+                className={classNames('select', {
+                  'is-danger': hasUserIdError,
+                })}
+              >
                 <select
                   value={userId}
                   onChange={handleUserChange}
@@ -92,15 +100,23 @@ export const App: React.FC = () => {
                 >
                   <option value={0}>Choose a user</option>
                   {usersFromServer.map(user => (
-                    <option value={user.id} key={user.id}>{user.name}</option>
+                    <option value={user.id} key={user.id}>
+                      {user.name}
+                    </option>
                   ))}
                 </select>
               </div>
             </div>
-            {hasUserIdError && <p className="help is-danger">Please choose a user</p>}
+            {hasUserIdError && (
+              <p className="help is-danger">Please choose a user</p>
+            )}
           </div>
 
-          <button type="submit" className="button is-link" data-cy="submitButton">
+          <button
+            type="submit"
+            className="button is-link"
+            data-cy="submitButton"
+          >
             Add
           </button>
         </form>
