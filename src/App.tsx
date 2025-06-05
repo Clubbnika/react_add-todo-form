@@ -107,9 +107,6 @@ export const App: React.FC = () => {
                 </select>
               </div>
             </div>
-            {hasUserIdError && (
-              <p className="help is-danger">Please choose a user</p>
-            )}
           </div>
 
           <button
